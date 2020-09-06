@@ -1,0 +1,55 @@
+<!DOCTYPE >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="eng">
+  <head>
+    <title>Qr Code</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=no"
+    />
+    <!-- <script type="text/javascript" src="jquery.min.js"></script> -->
+    <script type="text/javascript" src="qrcode.js"></script>
+  </head>
+  <body>
+    <input
+      type="text"
+      placeholder="Type something..."
+      id="text"
+      value="Ehtisham"
+    />
+    <input
+      type="text"
+      placeholder="Type something..."
+      id="text2"
+      value="03333705027"
+    />
+    <button type="button" onclick="makeCodeCallFunction();">Get Value</button>
+    <br />
+    <div
+      id="qrcode"
+      style="width: 100px; height: 100px; margin-top: 15px"
+    ></div>
+
+    <script type="text/javascript">
+      var qrcode = new QRCode(document.getElementById("qrcode"));
+      //Function creat for QR code
+      function makeCodeCallFunction() {
+        var elText = document.getElementById("text").value;
+        var elText2 = document.getElementById("text2").value;
+        var totn_string = "";
+        totn_string = totn_string.concat(
+          " Name: ",
+          elText,
+          " Phone No: ",
+          elText2,
+          " Name: ",
+          elText,
+          " Phone No: ",
+          elText2
+        );
+        console.log(totn_string);
+        qrcode.makeCode(totn_string);
+      }
+    </script>
+  </body>
+</html>
